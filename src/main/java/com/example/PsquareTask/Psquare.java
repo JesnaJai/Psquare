@@ -14,9 +14,7 @@ public class Psquare {
         try {
             List<PsquareStudent> list = new ArrayList<>();
 
-//            String filePath = "C:\\Users\\asdeft\\JaspersoftWorkspace\\MyReports\\PsquareTask.jrxml";
-            String filePath = "C:\\Users\\asdeft\\JaspersoftWorkspace\\MyReports\\PsquareStudentReport1.jrxml";
-//            String filePath = "C:\\Users\\asdeft\\JaspersoftWorkspace\\MyReports\\PsquareStudentReport.jrxml";
+            String filePath = "C:\\Users\\asdeft\\JaspersoftWorkspace\\MyReports\\PsquareStudentDetailReport.jrxml";
 
             PsquareStudent student1 = new PsquareStudent();
             student1.setId(1);
@@ -53,13 +51,11 @@ public class Psquare {
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(list);
             JasperReport report = JasperCompileManager.compileReport(filePath);
 
-            // Use a Map for parameters
             Map<String, Object> parameters = new HashMap<>();
             parameters.put("PsquareDataSource", dataSource);
 
             JasperPrint print = JasperFillManager.fillReport(report, parameters, dataSource);
-//            JasperExportManager.exportReportToPdfFile(print, "D:\\Jasper\\New folder\\PsquareTask.pdf");
-            JasperExportManager.exportReportToPdfFile(print, "D:\\Jasper\\New folder\\PsquareStudentReport.pdf");
+            JasperExportManager.exportReportToPdfFile(print, "D:\\Jasper\\New folder\\PsquareStudentDetailReport.pdf");
             System.out.println("Report created.............");
         } catch (Exception e) {
             System.out.println("Exception while creating report");
